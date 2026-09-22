@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="NONON, Los Angeles" />
+    <title>NONON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='white'/%3E%3Cpath d='M18 44V20l28 24V20' fill='none' stroke='black' stroke-width='3'/%3E%3C/svg%3E" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Murecho", sans-serif;
+        font-synthesis: none;
+      }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body { margin: 0; min-height: 100%; }
+
+      body {
+        background: #fff;
+        color: #000;
+        font-weight: 100;
+      }
+
+      main {
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+      }
+
+      h1,
+      .location {
+        position: absolute;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+        font-weight: 100;
+      }
+
+      h1 {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: baseline;
+        color: inherit;
+        text-decoration: none;
+        font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+        line-height: 1;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      .non {
+        flex: 0 0 auto;
+      }
+
+      .cursor {
+        position: relative;
+        display: inline-block;
+        flex: 0 0 auto;
+        width: 0.72em;
+        height: 1em;
+        overflow: hidden;
+        animation:
+          cursor-blink 2s linear forwards,
+          cursor-collapse 420ms cubic-bezier(0.76, 0, 0.24, 1) 2s forwards;
+      }
+
+      .cursor::after {
+        content: "";
+        position: absolute;
+        left: 0.08em;
+        right: 0.08em;
+        bottom: 0.02em;
+        height: 1px;
+        background: currentColor;
+        transform: scaleY(0.5);
+        transform-origin: center bottom;
+      }
+
+      .location {
+        bottom: clamp(2.5rem, 7vh, 5.5rem);
+        font-size: clamp(0.8rem, 1vw, 0.95rem);
+        line-height: 1.2;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+      }
+
+      .wordmark:focus-visible {
+        outline: 1px solid currentColor;
+        outline-offset: 0.35rem;
+      }
+
+      @keyframes cursor-blink {
+        0%, 35% { opacity: 1; }
+        40%, 49.99% { opacity: 0; }
+        50%, 85% { opacity: 1; }
+        90%, 100% { opacity: 0; }
+      }
+
+      @keyframes cursor-collapse {
+        from { width: 0.72em; }
+        to { width: 0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cursor {
+          width: 0;
+          opacity: 0;
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main aria-label="NONON">
+      <h1>
+        <a class="wordmark" href="mailto:hello@nonon.la" aria-label="Email NONON at hello@nonon.la">
+          <span class="non">NON</span><span class="cursor" aria-hidden="true"></span><span>ON</span>
+        </a>
+      </h1>
+      <div class="location">los angeles</div>
+    </main>
+  </body>
+</html>
